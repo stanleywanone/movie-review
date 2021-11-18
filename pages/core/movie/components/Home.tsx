@@ -14,8 +14,8 @@ import { useGetMovies } from '../hooks/getMovies';
 
 /**Color map :1B262C, 0F4C75, 3282B8 BBE1FA */
 export const Home = (): PageComponent => {
-  const { popularMovies } = useGetMovies();
-  console.log('popularMovies, ', popularMovies);
+  const { popularMovies, topRatedMovies, nowPlayingMovies } = useGetMovies();
+
   return (
     <Flex flexDir="column" p={1} backgroundColor="#1B262C" height="100%">
       <HStack color="#3282B8" justifyContent="space-between">
@@ -38,7 +38,11 @@ export const Home = (): PageComponent => {
       <Flex overflow="scroll" height={'100%'}>
         <Box flex="1" h={'full'} bgColor={'#0F4C75'}></Box>
         <Box flex="7">
-          <Content popularMovies={popularMovies}></Content>
+          <Content
+            topRatedMovies={topRatedMovies}
+            popularMovies={popularMovies}
+            nowPlayingMovies={nowPlayingMovies}
+          ></Content>
         </Box>
       </Flex>
     </Flex>
