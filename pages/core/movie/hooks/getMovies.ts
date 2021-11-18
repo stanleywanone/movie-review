@@ -18,7 +18,8 @@ export const useGetMovies = (): UseGetMoviesReturn => {
   const getPopularMovies = async (): Promise<any> => {
     const popularMovies = await get(GET_POPULAR_MOVIES);
 
-    if (response.ok) setPopularMovies(popularMovies);
+    console.log('sdsfsd, ', popularMovies.results);
+    if (response.ok) setPopularMovies(popularMovies.results.slice(0, 6));
   };
 
   return {

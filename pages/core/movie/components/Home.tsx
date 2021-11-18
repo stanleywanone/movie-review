@@ -4,6 +4,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Box,
   Flex,
 } from '@chakra-ui/react';
 import { PageComponent } from '../../common/types/page';
@@ -16,7 +17,7 @@ export const Home = (): PageComponent => {
   const { popularMovies } = useGetMovies();
   console.log('popularMovies, ', popularMovies);
   return (
-    <Flex flexDir="column" p={1} backgroundColor="#1B262C">
+    <Flex flexDir="column" p={1} backgroundColor="#1B262C" height="100%">
       <HStack color="#3282B8" justifyContent="space-between">
         <Text fontSize="32px">MOVIES SEARCH</Text>
         <HStack>
@@ -34,10 +35,12 @@ export const Home = (): PageComponent => {
           </InputGroup>
         </HStack>
       </HStack>
-
-      <HStack>
-        <Content></Content>
-      </HStack>
+      <Flex overflow="scroll" height={'100%'}>
+        <Box flex="1" h={'full'} bgColor={'#0F4C75'}></Box>
+        <Box flex="7">
+          <Content popularMovies={popularMovies}></Content>
+        </Box>
+      </Flex>
     </Flex>
   );
 };
