@@ -8,9 +8,13 @@ import {
 } from '@chakra-ui/react';
 import { PageComponent } from '../../common/types/page';
 import { SearchIcon } from '@chakra-ui/icons';
+import { Content } from './Content';
+import { useGetMovies } from '../hooks/getMovies';
 
 /**Color map :1B262C, 0F4C75, 3282B8 BBE1FA */
 export const Home = (): PageComponent => {
+  const { popularMovies } = useGetMovies();
+  console.log('popularMovies, ', popularMovies);
   return (
     <Flex flexDir="column" p={1} backgroundColor="#1B262C">
       <HStack color="#3282B8" justifyContent="space-between">
@@ -24,7 +28,6 @@ export const Home = (): PageComponent => {
             />
             <Input
               placeholder="Search for movies..."
-              // w="50%"
               backgroundColor="white"
               border="1px solid #3282B8"
             />{' '}
@@ -32,7 +35,9 @@ export const Home = (): PageComponent => {
         </HStack>
       </HStack>
 
-      <HStack></HStack>
+      <HStack>
+        <Content></Content>
+      </HStack>
     </Flex>
   );
 };
