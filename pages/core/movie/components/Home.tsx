@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { PageComponent } from '../../common/types/page';
 import { SearchIcon } from '@chakra-ui/icons';
+import { SearchSideBar } from './SearchSideBar';
 import { Content } from './Content';
 import { useGetMovies } from '../hooks/getMovies';
 
@@ -36,7 +37,10 @@ export const Home = (): PageComponent => {
         </HStack>
       </HStack>
       <Flex overflow="scroll" height={'100%'}>
-        <Box flex="1" h={'full'} bgColor={'#0F4C75'}></Box>
+        <Box flex="1" h={'full'} bgColor={'#0F4C75'}>
+          {' '}
+          <SearchSideBar />
+        </Box>
         <Box flex="7">
           <Content
             topRatedMovies={topRatedMovies}
