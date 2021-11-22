@@ -13,6 +13,16 @@ import { SearchSideBar } from './SearchSideBar';
 import { Content } from './Content';
 import { useGetMovies } from '../hooks/getMovies';
 
+const genresOptions = [
+  { value: 'action', label: 'Action' },
+  { value: 'animation', label: 'Animation' },
+  { value: 'adventure', label: 'Adventure' },
+  { value: 'comedy', label: 'Comedy' },
+  { value: 'crime', label: 'Crime' },
+  { value: 'family', label: 'Family' },
+  { value: 'fantasy', label: 'Fantasy' },
+  { value: 'horror', label: 'Horror' },
+];
 /**Color map :1B262C, 0F4C75, 3282B8 BBE1FA */
 export const Home = (): PageComponent => {
   const { popularMovies, topRatedMovies, nowPlayingMovies } = useGetMovies();
@@ -36,8 +46,17 @@ export const Home = (): PageComponent => {
           </InputGroup>
         </HStack>
       </HStack>
+      <HStack size="md" justifyContent="space-between" mr={2} color="#BBE1FA">
+        {genresOptions.map((genre) => {
+          return (
+            <Box key={genre.value} h={10} mt={1} ml={2}>
+              <Text key={genre.value}>{genre.label}</Text>
+            </Box>
+          );
+        })}
+      </HStack>
       <Flex overflow="scroll" height={'100%'}>
-        <Box flex="1" h={'full'} bgColor={'#0F4C75'}>
+        <Box flex="1" h={'full'}>
           {' '}
           <SearchSideBar />
         </Box>

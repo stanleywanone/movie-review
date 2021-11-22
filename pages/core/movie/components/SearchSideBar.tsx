@@ -9,6 +9,7 @@ import {
   InputGroup,
   InputLeftElement,
   Flex,
+  Button,
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 
@@ -39,7 +40,7 @@ export const SearchSideBar = (): PageComponent => {
         />{' '}
       </InputGroup>
       <Text fontWeight="bold">Genres</Text>
-      <CheckboxGroup colorScheme="green">
+      <CheckboxGroup colorScheme="#3282B8">
         <VStack alignItems="flex-start">
           {genresOptions.map((genre) => {
             return (
@@ -50,6 +51,12 @@ export const SearchSideBar = (): PageComponent => {
           })}
         </VStack>
       </CheckboxGroup>
+      <Flex w={'full'} justifyContent="flex-end" mt={2}>
+        {' '}
+        <Button size="sm" bgColor="#3282B8">
+          <Text>Apply</Text>
+        </Button>
+      </Flex>
     </Flex>
   );
 };
