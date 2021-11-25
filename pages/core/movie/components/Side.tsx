@@ -24,7 +24,7 @@ const genresOptions = [
   { value: 'horror', label: 'Horror' },
 ];
 
-export const SearchSideBar = (): PageComponent => {
+export const Side = (): PageComponent => {
   return (
     <Flex m={1} flexDir="column" alignItems="flex-start" color="#BBE1FA">
       <InputGroup w="100%">
@@ -60,3 +60,5 @@ export const SearchSideBar = (): PageComponent => {
     </Flex>
   );
 };
+
+export default Side;
