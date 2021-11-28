@@ -9,7 +9,7 @@ export const Layout = ({ children }): PageComponent => {
     <Flex flexDir="column" p={1} backgroundColor="#1B262C" h={'full'}>
       <Header />
       <Flex overflow="scroll" h={'full'}>
-        <Box flex="1" h={'full'}>
+        <Box flex="1">
           <Side />
         </Box>
         <Box flex="7">{children}</Box>
