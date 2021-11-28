@@ -26,21 +26,24 @@ export const useGetMovies = (): UseGetMoviesReturn => {
   }, []);
 
   const getPopularMovies = async (): Promise<any> => {
-    const popularMovies = await get(GET_POPULAR_MOVIES);
+    const popularMoviesResponse = await get(GET_POPULAR_MOVIES);
 
-    if (response.ok) setPopularMovies(popularMovies.results.slice(0, 6));
+    if (response.ok)
+      setPopularMovies(popularMoviesResponse.results.slice(0, 6));
   };
 
   const getTopRatedMovies = async (): Promise<any> => {
-    const topRatedMovies = await get(GET_TOP_RATED_MOVIES);
+    const topRatedMoviesResponse = await get(GET_TOP_RATED_MOVIES);
 
-    if (response.ok) setTopRatedMovies(topRatedMovies.results.slice(0, 6));
+    if (response.ok)
+      setTopRatedMovies(topRatedMoviesResponse.results.slice(0, 6));
   };
 
   const getnowPlayingMovies = async (): Promise<any> => {
-    const nowPlayingMovies = await get(GET_NOW_PLAYING_MOVIES);
+    const nowPlayingMoviesResponse = await get(GET_NOW_PLAYING_MOVIES);
 
-    if (response.ok) setNowPlayingMovies(nowPlayingMovies.results.slice(0, 6));
+    if (response.ok)
+      setNowPlayingMovies(nowPlayingMoviesResponse.results.slice(0, 6));
   };
 
   return {
