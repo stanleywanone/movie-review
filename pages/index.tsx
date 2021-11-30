@@ -7,7 +7,7 @@ import { MOVIES_POSTER } from './core/movie/api/get';
 export const Index = (): PageComponent => {
   const { popularMovies, topRatedMovies, nowPlayingMovies } = useGetMovies();
   return (
-    <Flex color={'#BBE1FA'} flexDir="column">
+    <Flex color={'lightBlue.300'} flexDir="column">
       <Text m={2} fontSize="2xl" fontStyle="italic">
         Now Playing Movies
       </Text>
@@ -23,7 +23,7 @@ export const Index = (): PageComponent => {
                     src={MOVIES_POSTER + movie.poster_path}
                     alt={movie.original_title}
                   />
-                  <Text color={'#BBE1FA'}>{movie.original_title}</Text>
+                  <Text>{movie.original_title}</Text>
                 </Box>
               </>
             );
@@ -44,7 +44,7 @@ export const Index = (): PageComponent => {
                     src={MOVIES_POSTER + movie.poster_path}
                     alt={movie.original_title}
                   />
-                  <Text color={'#BBE1FA'}>{movie.original_title}</Text>
+                  <Text>{movie.original_title}</Text>
                 </Box>
               </>
             );
@@ -65,7 +65,7 @@ export const Index = (): PageComponent => {
                     src={MOVIES_POSTER + movie.poster_path}
                     alt={movie.original_title}
                   />
-                  <Text color={'#BBE1FA'}>{movie.original_title}</Text>
+                  <Text>{movie.original_title}</Text>
                 </Box>
               </>
             );

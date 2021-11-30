@@ -6,7 +6,7 @@ import { Side } from '../../movie/components/Side';
 /**Color map :1B262C, 0F4C75, 3282B8 BBE1FA */
 export const Layout = ({ children }): PageComponent => {
   return (
-    <Flex flexDir="column" p={1} backgroundColor="#1B262C" h={'full'}>
+    <Flex flexDir="column" p={1} backgroundColor={'dark.400'} h={'full'}>
       <Header />
       <Flex overflow="scroll" h={'full'}>
         <Box flex="1">

@@ -38,7 +38,7 @@ export const Pagination = ({
             key={`${page} page`}
             cursor="pointer"
             onClick={page !== DOTS ? () => setCurrentPage(page) : null}
-            bgColor={currentPage === page && '#3282B8'}
+            bgColor={currentPage === page && 'darkBlue.900'}
             h={10}
             w={10}
             justifyContent="center"

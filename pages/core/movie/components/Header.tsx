@@ -29,7 +29,7 @@ export const Header = (): PageComponent => {
   return (
     <Flex flexDir="column">
       <Flex justifyContent="space-between">
-        <HStack color="#3282B8">
+        <HStack color={'darkBlue.900'}>
           <Text
             cursor="pointer"
             fontSize="32px"
@@ -49,7 +49,7 @@ export const Header = (): PageComponent => {
             <Input
               placeholder="Search for movies..."
               backgroundColor="white"
-              border="1px solid #3282B8"
+              border="1px solid darkBlue.900"
             />{' '}
           </InputGroup>
         </HStack>
@@ -58,7 +58,7 @@ export const Header = (): PageComponent => {
         <Flex
           justifyContent="space-between"
           mr={2}
-          color="#BBE1FA"
+          color="lightBlue.300"
           w={'full'}
           mt={2}
         >

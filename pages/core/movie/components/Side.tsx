@@ -26,7 +26,12 @@ const genresOptions = [
 
 export const Side = (): PageComponent => {
   return (
-    <Flex m={1} flexDir="column" alignItems="flex-start" color="#BBE1FA">
+    <Flex
+      m={1}
+      flexDir="column"
+      alignItems="flex-start"
+      color={'ligthBlue.300'}
+    >
       <InputGroup w="100%">
         <InputLeftElement
           pointerEvents="none"
@@ -36,16 +41,18 @@ export const Side = (): PageComponent => {
         <Input
           placeholder="Search..."
           backgroundColor="white"
-          border="1px solid #3282B8"
+          border="1px solid darkBlue.900"
         />{' '}
       </InputGroup>
-      <Text fontWeight="bold">Genres</Text>
-      <CheckboxGroup colorScheme="#3282B8">
+      <Text fontWeight="bold" color={'lightBlue.300'} mt={2}>
+        Genres
+      </Text>
+      <CheckboxGroup>
         <VStack alignItems="flex-start">
           {genresOptions.map((genre) => {
             return (
               <Checkbox value={genre.value} key={genre.value}>
-                {genre.label}
+                <Text color={'lightBlue.300'}>{genre.label}</Text>
               </Checkbox>
             );
           })}
@@ -53,7 +60,7 @@ export const Side = (): PageComponent => {
       </CheckboxGroup>
       <Flex w={'full'} justifyContent="flex-end" mt={2}>
         {' '}
-        <Button size="sm" bgColor="#3282B8">
+        <Button size="sm" bgColor="darkBlue.900">
           <Text>Apply</Text>
         </Button>
       </Flex>

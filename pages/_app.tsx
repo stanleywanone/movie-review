@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import type { ReactNode } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
+import theme from './theme/index';
 import React from 'react';
 import { Layout } from './core/common/components/Layout';
 
@@ -24,7 +25,9 @@ export const App = ({ Component, pageProps }: MyAppProps): JSX.Element => {
 
   return (
     <div style={{ height: '100vh' }}>
-      <ChakraProvider>{getLayout(<Component {...pageProps} />)}</ChakraProvider>
+      <ChakraProvider theme={theme}>
+        {getLayout(<Component {...pageProps} />)}
+      </ChakraProvider>
     </div>
   );
 };
