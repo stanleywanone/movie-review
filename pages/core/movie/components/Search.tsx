@@ -4,9 +4,10 @@ import { PageComponent } from '../../common/types/page';
 import { useRouter } from 'next/router';
 import { MOVIES_POSTER } from '../api/get';
 import { userGernresMoives } from '../hooks/getGenresMoives';
+import { Pagination } from '../../common/components/Pagination/Pagination';
 
 export const Search = (): PageComponent => {
-  const { genresMovies } = userGernresMoives();
+  const { genresMovies, currentPage, setCurrentPage } = userGernresMoives();
   const router = useRouter();
   const genres = useMemo(() => {
     if (router.query.genres) {
@@ -16,19 +17,26 @@ export const Search = (): PageComponent => {
       );
     }
   }, [router.query.genres]);
+
   return (
     <Flex color={'#BBE1FA'} flexDir="column" m={2}>
       <Text fontSize="2xl" fontStyle="italic">
         {genres} Movies
       </Text>
       <Flex overflow={'scroll'} flexWrap="wrap" mt={2}>
-        {genresMovies.length > 0 &&
-          genresMovies.map((movie) => {
+        {genresMovies.results?.length > 0 &&
+          genresMovies.results?.map((movie) => {
             return (
               <>
-                <Box h={'250px'} w={'150px'} mb={20} mr={6}>
+                <Box
+                  key={`${movie.id} box`}
+                  h={'250px'}
+                  w={'150px'}
+                  mb={20}
+                  mr={6}
+                >
                   <Image
-                    key={movie.id}
+                    key={`${movie.id} image`}
                     objectFit="cover"
                     src={MOVIES_POSTER + movie.poster_path}
                     alt={movie.original_title}
@@ -38,6 +46,13 @@ export const Search = (): PageComponent => {
               </>
             );
           })}
+      </Flex>
+      <Flex mb={5}>
+        <Pagination
+          totalPages={genresMovies.total_pages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </Flex>
     </Flex>
   );

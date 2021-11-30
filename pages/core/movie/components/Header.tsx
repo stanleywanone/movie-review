@@ -30,7 +30,12 @@ export const Header = (): PageComponent => {
     <Flex flexDir="column">
       <Flex justifyContent="space-between">
         <HStack color="#3282B8">
-          <Text fontSize="32px" fontWeight="bold">
+          <Text
+            cursor="pointer"
+            fontSize="32px"
+            fontWeight="bold"
+            onClick={() => router.push(`/`)}
+          >
             MOVIES SEARCH
           </Text>
         </HStack>

@@ -1,10 +1,12 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, Dispatch, SetStateAction } from 'react';
 import useFetch from 'use-http';
 import { useRouter } from 'next/router';
 import { GET_GENRES_MOVIES, TMBD } from '../api/get';
 
 export interface UserGernresMoivesReturns {
   genresMovies: any;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
+  currentPage: number;
 }
 
 enum GenresId {
@@ -21,6 +23,7 @@ enum GenresId {
 export const userGernresMoives = (): UserGernresMoivesReturns => {
   const router = useRouter();
   const [genresMovies, setGenresMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const { get, response } = useFetch(TMBD);
 
   const genresId = useMemo(() => {
@@ -52,9 +55,11 @@ export const userGernresMoives = (): UserGernresMoivesReturns => {
   const getGenresMovies = async (): Promise<any> => {
     const generMoviesResponse = await get(GET_GENRES_MOVIES + genresId);
 
-    if (response.ok) setGenresMovies(generMoviesResponse.results);
+    if (response.ok) setGenresMovies(generMoviesResponse);
   };
   return {
     genresMovies,
+    currentPage,
+    setCurrentPage,
   };
 };
