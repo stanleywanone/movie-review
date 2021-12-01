@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
-import { PageComponent } from '../../common/types/page';
+import { PageComponent } from '../../../common/types/page';
 import { useRouter } from 'next/router';
-import { userGernresMoives } from '../hooks/getGenresMoives';
-import { Pagination } from '../../common/components/Pagination';
-import { Poster } from '../../common/components/Poster/Poster';
+import { userGernresMoives } from '../../hooks/getGenresMoives';
+import { Pagination } from '../../../common/components/Pagination';
+import { Poster } from '../../../common/components/Poster';
 
-export const Search = (): PageComponent => {
+const GenreMovies = (): PageComponent => {
   const { genresMovies, currentPage, setCurrentPage } = userGernresMoives();
   const router = useRouter();
   const genres = useMemo(() => {
@@ -35,4 +35,4 @@ export const Search = (): PageComponent => {
   );
 };
 
-Search.displayName = 'Search';
+export default GenreMovies;

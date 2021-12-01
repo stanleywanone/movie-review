@@ -9,7 +9,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 
-import { PageComponent } from '../../common/types/page';
+import { PageComponent } from '../../types/page';
 import { SearchIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 
@@ -69,7 +69,7 @@ export const Header = (): PageComponent => {
                   key={genre.value}
                   onClick={() =>
                     router.push(
-                      `/core/movie/components/Search?genres=${genre.value}`
+                      `/core/movie/components/GenreMovies?genres=${genre.value}`
                     )
                   }
                 >

@@ -1,4 +1,4 @@
-import { PageComponent } from '../../common/types/page';
+import { PageComponent } from '../../types/page';
 
 import {
   VStack,
@@ -24,7 +24,7 @@ const genresOptions = [
   { value: 'horror', label: 'Horror' },
 ];
 
-export const Side = (): PageComponent => {
+export const Sider = (): PageComponent => {
   return (
     <Flex
       m={1}
@@ -68,4 +68,4 @@ export const Side = (): PageComponent => {
   );
 };
 
-Side.displayName = 'Side';
+Sider.displayName = 'Sider';

@@ -1,7 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { PageComponent } from '../../types/page';
-import { Header } from '../../../movie/components/Header';
-import { Side } from '../../../movie/components/Side';
+import { Header } from '../Header';
+import { Sider } from '../Sider';
 
 /**Color map :1B262C, 0F4C75, 3282B8 BBE1FA */
 export const Layout = ({ children }): PageComponent => {
@@ -10,7 +10,7 @@ export const Layout = ({ children }): PageComponent => {
       <Header />
       <Flex overflow="scroll" h={'full'}>
         <Box flex="1">
-          <Side />
+          <Sider />
         </Box>
         <Box flex="7">{children}</Box>
       </Flex>
