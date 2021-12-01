@@ -1,11 +1,11 @@
 // export default App;
+import React from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import type { ReactNode } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from './theme/index';
-import React from 'react';
-import { Layout } from './core/common/components/Layout';
+import { Layout } from './core/common/components/Layout/Layout';
 
 type GetLayout = (page: ReactNode) => ReactNode;
 

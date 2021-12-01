@@ -1,8 +1,7 @@
+import { Dispatch, SetStateAction, FC } from 'react';
 import { Flex } from '@chakra-ui/react';
-import { Dispatch, SetStateAction } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { usePagination } from './usePagination';
-import { PageComponent } from '../../types/page';
 
 export interface PagiantionProps {
   currentPage: number;
@@ -10,11 +9,11 @@ export interface PagiantionProps {
   setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
-export const Pagination = ({
+export const Pagination: FC<PagiantionProps> = ({
   currentPage,
   totalPages,
   setCurrentPage,
-}: PagiantionProps): PageComponent => {
+}) => {
   const { pagesArray, DOTS } = usePagination(currentPage, totalPages);
 
   return (
@@ -65,5 +64,3 @@ export const Pagination = ({
     </Flex>
   );
 };
-
-export default Pagination;

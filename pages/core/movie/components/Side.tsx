@@ -68,4 +68,4 @@ export const Side = (): PageComponent => {
   );
 };
 
-export default Side;
+Side.displayName = 'Side';

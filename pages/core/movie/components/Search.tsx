@@ -3,7 +3,7 @@ import { Flex, Text } from '@chakra-ui/react';
 import { PageComponent } from '../../common/types/page';
 import { useRouter } from 'next/router';
 import { userGernresMoives } from '../hooks/getGenresMoives';
-import { Pagination } from '../../common/components/Pagination/Pagination';
+import { Pagination } from '../../common/components/Pagination';
 import { Poster } from '../../common/components/Poster/Poster';
 
 export const Search = (): PageComponent => {
@@ -35,4 +35,4 @@ export const Search = (): PageComponent => {
   );
 };
 
-export default Search;
+Search.displayName = 'Search';

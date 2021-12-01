@@ -84,4 +84,4 @@ export const Header = (): PageComponent => {
   );
 };
 
-export default Header;
+Header.displayName = 'Header';
