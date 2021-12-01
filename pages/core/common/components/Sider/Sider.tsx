@@ -9,9 +9,9 @@ import {
   InputGroup,
   InputLeftElement,
   Flex,
-  Button,
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
+import { Button } from '../Button';
 
 const genresOptions = [
   { value: 'action', label: 'Action' },
@@ -60,7 +60,7 @@ export const Sider = (): PageComponent => {
       </CheckboxGroup>
       <Flex w={'full'} justifyContent="flex-end" mt={2}>
         {' '}
-        <Button size="sm" bgColor="darkBlue.900">
+        <Button>
           <Text>Apply</Text>
         </Button>
       </Flex>
