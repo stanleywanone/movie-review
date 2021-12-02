@@ -1,10 +1,7 @@
 import { PageComponent } from '../../types/page';
 
 import {
-  VStack,
   Text,
-  CheckboxGroup,
-  Checkbox,
   Input,
   InputGroup,
   InputLeftElement,
@@ -12,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { Button } from '../Button';
+import { Select } from '../Select';
 
 const genresOptions = [
   { value: 'action', label: 'Action' },
@@ -47,17 +45,7 @@ export const Sider = (): PageComponent => {
       <Text fontWeight="bold" color={'lightBlue.300'} mt={2}>
         Genres
       </Text>
-      <CheckboxGroup>
-        <VStack alignItems="flex-start">
-          {genresOptions.map((genre) => {
-            return (
-              <Checkbox value={genre.value} key={genre.value}>
-                <Text color={'lightBlue.300'}>{genre.label}</Text>
-              </Checkbox>
-            );
-          })}
-        </VStack>
-      </CheckboxGroup>
+      <Select options={genresOptions} color={'white'} />
       <Flex w={'full'} justifyContent="flex-end" mt={2}>
         {' '}
         <Button>
