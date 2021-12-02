@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
+import { useRouter } from 'next/router';
 import { Flex, Text } from '@chakra-ui/react';
 import { PageComponent } from '../../../common/types/page';
-import { useRouter } from 'next/router';
 import { userGernresMoives } from '../../hooks/getGenresMoives';
 import { Pagination } from '../../../common/components/Pagination';
 import { Poster } from '../../../common/components/Poster';
@@ -17,6 +17,12 @@ const GenreMovies = (): PageComponent => {
       );
     }
   }, [router.query.genres]);
+
+  useEffect(() => {
+    router.push(
+      `/core/movie/components/GenreMovies?genres=${router.query.genres}&page=${currentPage}`
+    );
+  }, [router.query.genres, currentPage]);
 
   return (
     <Flex color="lightBlue.300" flexDir="column" m={2}>

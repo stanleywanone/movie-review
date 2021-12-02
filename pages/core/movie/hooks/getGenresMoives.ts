@@ -6,6 +6,8 @@ import { GET_GENRES_MOVIES, TMBD } from '../api/get';
 export interface UserGernresMoivesReturns {
   genresMovies: any;
   setCurrentPage: Dispatch<SetStateAction<number>>;
+  setSelectGenre: Dispatch<SetStateAction<string>>;
+  selectGenre: string;
   currentPage: number;
 }
 
@@ -23,6 +25,7 @@ enum GenresId {
 export const userGernresMoives = (): UserGernresMoivesReturns => {
   const router = useRouter();
   const [genresMovies, setGenresMovies] = useState([]);
+  const [selectGenre, setSelectGenre] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const { get, response } = useFetch(TMBD);
 
@@ -46,14 +49,19 @@ export const userGernresMoives = (): UserGernresMoivesReturns => {
         return '27';
     }
   }, [router.query.genres]);
+
   useEffect(() => {
     if (router.query.genres) {
       getGenresMovies();
     }
-  }, [router.query.genres]);
+  }, [router.query.genres, router.query.page]);
 
   const getGenresMovies = async (): Promise<any> => {
-    const generMoviesResponse = await get(GET_GENRES_MOVIES + genresId);
+    const generMoviesResponse = await get(
+      GET_GENRES_MOVIES +
+        `&with_genres=${genresId}` +
+        `&page=${router.query.page}`
+    );
 
     if (response.ok) setGenresMovies(generMoviesResponse);
   };
@@ -61,5 +69,7 @@ export const userGernresMoives = (): UserGernresMoivesReturns => {
     genresMovies,
     currentPage,
     setCurrentPage,
+    setSelectGenre,
+    selectGenre,
   };
 };

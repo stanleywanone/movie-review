@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import {
   HStack,
   Text,
@@ -8,10 +9,8 @@ import {
   Link,
   Box,
 } from '@chakra-ui/react';
-
-import { PageComponent } from '../../types/page';
 import { SearchIcon } from '@chakra-ui/icons';
-import { useRouter } from 'next/router';
+import { PageComponent } from '../../types/page';
 
 const genresOptions = [
   { value: 'action', label: 'Action' },
@@ -69,7 +68,7 @@ export const Header = (): PageComponent => {
                   key={genre.value}
                   onClick={() =>
                     router.push(
-                      `/core/movie/components/GenreMovies?genres=${genre.value}`
+                      `/core/movie/components/GenreMovies?genres=${genre.value}&page=1`
                     )
                   }
                 >

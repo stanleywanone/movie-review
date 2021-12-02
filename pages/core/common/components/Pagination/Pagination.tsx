@@ -56,7 +56,6 @@ export const Pagination: FC<PagiantionProps> = ({
         alignItems="center"
       >
         <ChevronRightIcon
-          // mr={4}
           boxSize={6}
           onClick={currentPage < 500 && (() => setCurrentPage(currentPage + 1))}
         />
