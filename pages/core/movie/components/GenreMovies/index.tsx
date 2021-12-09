@@ -19,9 +19,11 @@ const GenreMovies = (): PageComponent => {
   }, [router.query.genres]);
 
   useEffect(() => {
-    router.push(
-      `/core/movie/components/GenreMovies?genres=${router.query.genres}&page=${currentPage}`
-    );
+    if (router.query.genres) {
+      router.push(
+        `/core/movie/components/GenreMovies?genres=${router.query.genres}&page=${currentPage}`
+      );
+    }
   }, [router.query.genres, currentPage]);
 
   return (

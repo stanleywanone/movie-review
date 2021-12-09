@@ -20,19 +20,15 @@ interface PosterProps extends BoxProps {
 export const Poster: FC<PosterProps> = ({
   items = [],
   w = '200px',
-  h = '100px',
-  mb = '300px',
-  mr = '20px',
-  objectFit = 'cover',
+
+  objectFit = 'scale-down',
   imageProps = {},
   titleProps = {},
   ...props
 }) => {
   const boxStyleProps = {
     w,
-    h,
-    mb,
-    mr,
+
     ...props,
   };
 
@@ -44,19 +40,52 @@ export const Poster: FC<PosterProps> = ({
   const titleStyleProps = {
     ...titleProps,
   };
+
   return (
     <Flex flexWrap="wrap" mt={2}>
       {items.map((item) => {
         return (
-          <Box key={`${item.id} box`} {...boxStyleProps}>
-            <Image
-              key={`${item.id} image`}
-              src={MOVIES_POSTER + item.poster_path}
-              alt={item.original_title}
-              {...imageStyleProps}
-            />
-            <Text {...titleStyleProps}>{item.original_title}</Text>
-          </Box>
+          <>
+            <Box mr={5} mb={2}>
+              <Flex key={`${item.id} box`} position={'relative'}>
+                <Image
+                  key={`${item.id} image`}
+                  src={MOVIES_POSTER + item.poster_path}
+                  alt={item.original_title}
+                  position="absolute"
+                  {...imageStyleProps}
+                />
+
+                <Flex
+                  {...boxStyleProps}
+                  h="300px"
+                  alignItems="end"
+                  justifyContent="end"
+                  position="relative"
+                  _hover={{
+                    '.description': {
+                      height: '200px',
+                      bgColor: 'dark.400',
+                    },
+                  }}
+                >
+                  <Box
+                    {...boxStyleProps}
+                    h="0px"
+                    className="description"
+                    position="relative"
+                    transitionProperty="height"
+                    transitionDuration="0.3s"
+                    transitionTimingFunction="linear"
+                    zIndex={1}
+                  ></Box>
+                </Flex>
+              </Flex>
+              <Box {...boxStyleProps}>
+                <Text {...titleStyleProps}>{item.original_title}</Text>
+              </Box>
+            </Box>
+          </>
         );
       })}
     </Flex>
