@@ -2,12 +2,12 @@ import { useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { Flex, Text } from '@chakra-ui/react';
 import { PageComponent } from '../../../common/types/page';
-import { userGernresMoives } from '../../hooks/getGenresMoives';
+import { useGernresMoives } from '../../hooks/getGenresMoives';
 import { Pagination } from '../../../common/components/Pagination';
 import { Poster } from '../../../common/components/Poster';
 
 const GenreMovies = (): PageComponent => {
-  const { genresMovies, currentPage, setCurrentPage } = userGernresMoives();
+  const { genresMovies, currentPage, setCurrentPage } = useGernresMoives();
   const router = useRouter();
   const genres = useMemo(() => {
     if (router.query.genres) {

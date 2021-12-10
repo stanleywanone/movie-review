@@ -3,7 +3,7 @@ import useFetch from 'use-http';
 import { useRouter } from 'next/router';
 import { GET_GENRES_MOVIES, TMBD } from '../api/get';
 
-export interface UserGernresMoivesReturns {
+export interface UseGernresMoivesReturns {
   genresMovies: any;
   setCurrentPage: Dispatch<SetStateAction<number>>;
   setSelectGenre: Dispatch<SetStateAction<string>>;
@@ -22,7 +22,7 @@ enum GenresId {
   Crime = 'crime',
 }
 
-export const userGernresMoives = (): UserGernresMoivesReturns => {
+export const useGernresMoives = (): UseGernresMoivesReturns => {
   const router = useRouter();
   const [genresMovies, setGenresMovies] = useState([]);
   const [selectGenre, setSelectGenre] = useState('');

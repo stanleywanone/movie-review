@@ -45,4 +45,5 @@ export const colors = {
     500: '#8bccf7',
     600: '#74c2f5',
   },
+  transparentColor: 'rgb(187,225,250, 0.5)',
 };

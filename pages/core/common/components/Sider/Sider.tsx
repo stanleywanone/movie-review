@@ -10,7 +10,7 @@ import { SearchIcon } from '@chakra-ui/icons';
 import { PageComponent } from '../../types/page';
 import { Button } from '../Button';
 import { Select } from '../Select';
-import { userGernresMoives } from '../../../movie/hooks/getGenresMoives';
+import { useGernresMoives } from '../../../movie/hooks/getGenresMoives';
 
 const genresOptions = [
   { value: 'action', label: 'Action' },
@@ -24,7 +24,7 @@ const genresOptions = [
 ];
 
 export const Sider = (): PageComponent => {
-  const { selectGenre, setSelectGenre } = userGernresMoives();
+  const { selectGenre, setSelectGenre } = useGernresMoives();
   return (
     <Flex
       m={1}

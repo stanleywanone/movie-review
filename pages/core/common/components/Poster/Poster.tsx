@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useRouter } from 'next/router';
 import {
   BoxProps,
   Flex,
@@ -15,20 +16,31 @@ interface PosterProps extends BoxProps {
   boxProps?: BoxProps;
   imageProps?: ImageProps;
   titleProps?: TextProps;
+  overviewProps?: TextProps;
+  overlayProps?: BoxProps;
 }
 
 export const Poster: FC<PosterProps> = ({
   items = [],
   w = '200px',
-
   objectFit = 'scale-down',
   imageProps = {},
   titleProps = {},
+  overviewProps = { fontSize: 'sm', fontStyle: 'italic', zIndex: 3, p: 1 },
+  overlayProps = {
+    bottom: 0,
+    position: 'absolute',
+    overflow: 'hidden',
+    w: 'full',
+    h: 0,
+    transition: '0.3s',
+    flexDir: 'column',
+  },
   ...props
 }) => {
+  const router = useRouter();
   const boxStyleProps = {
     w,
-
     ...props,
   };
 
@@ -41,47 +53,65 @@ export const Poster: FC<PosterProps> = ({
     ...titleProps,
   };
 
+  const overviewStyleProps = {
+    ...overviewProps,
+  };
+
+  const overlayStyleProps = {
+    ...overlayProps,
+  };
+
   return (
-    <Flex flexWrap="wrap" mt={2}>
+    <Flex flexWrap="wrap" mt={2} justifyContent="space-evenly">
       {items.map((item) => {
         return (
           <>
-            <Box mr={5} mb={2}>
-              <Flex key={`${item.id} box`} position={'relative'}>
+            <Box mr={5} mb={4}>
+              <Flex
+                key={`${item.id} box`}
+                flexWrap="wrap"
+                w="200px"
+                _hover={{
+                  '.Overlay': {
+                    height: '60%',
+                    bgColor: 'dark.400',
+                  },
+                  '.Cover': {
+                    bgColor: 'transparentColor',
+                  },
+                }}
+                onClick={() =>
+                  router.push(
+                    `/core/movie/components/MovieDetail?id=${item.id}`
+                  )
+                }
+                position={'relative'}
+              >
                 <Image
+                  className="ImageStyle"
                   key={`${item.id} image`}
                   src={MOVIES_POSTER + item.poster_path}
                   alt={item.original_title}
-                  position="absolute"
                   {...imageStyleProps}
                 />
+                <Box
+                  className="Cover"
+                  position="absolute"
+                  w={'full'}
+                  h={'full'}
+                />
 
-                <Flex
-                  {...boxStyleProps}
-                  h="300px"
-                  alignItems="end"
-                  justifyContent="end"
-                  position="relative"
-                  _hover={{
-                    '.description': {
-                      height: '200px',
-                      bgColor: 'dark.400',
-                    },
-                  }}
-                >
-                  <Box
-                    {...boxStyleProps}
-                    h="0px"
-                    className="description"
-                    position="relative"
-                    transitionProperty="height"
-                    transitionDuration="0.3s"
-                    transitionTimingFunction="linear"
-                    zIndex={1}
-                  ></Box>
+                <Flex className="Overlay" {...overlayStyleProps}>
+                  <Text fontWeight="bold" {...overviewStyleProps}>
+                    Overview:
+                  </Text>
+                  <Text {...overviewStyleProps}>
+                    {item.overview.substring(0, 150)}...
+                  </Text>
                 </Flex>
               </Flex>
-              <Box {...boxStyleProps}>
+
+              <Box {...boxStyleProps} mt={2}>
                 <Text {...titleStyleProps}>{item.original_title}</Text>
               </Box>
             </Box>
