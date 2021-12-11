@@ -19,7 +19,6 @@ interface PosterProps extends BoxProps {
   overviewProps?: TextProps;
   overlayProps?: BoxProps;
 }
-console.log('YESYES');
 
 export const Poster: FC<PosterProps> = ({
   items = [],
