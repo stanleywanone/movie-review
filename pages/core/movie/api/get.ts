@@ -12,3 +12,5 @@ export const GET_GENRES_MOVIES =
 export const GET_MOVIE_DETAILS = (id: string): string => {
   return `/movie/${id}?api_key=929dba9ca677a666c2bddf5b213f5b29&language=en-US&page=1`;
 };
+
+console.log('nono problem');
