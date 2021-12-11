@@ -85,6 +85,7 @@ export const Poster: FC<PosterProps> = ({
                     `/core/movie/components/MovieDetail?id=${item.id}`
                   )
                 }
+                cursor="pointer"
                 position={'relative'}
               >
                 <Image
