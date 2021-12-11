@@ -49,7 +49,7 @@ export const SelectConfig = {
     size: 'lg',
   },
 };
-
+console.log('worng');
 export const Select: FC<SelectProps> = ({
   options,
   placeholder = '--select--',
