@@ -28,7 +28,7 @@ export const Sider = (): PageComponent => {
   const onSearch = (event): void => {
     if (event.key === 'Enter')
       router.push(
-        `/core/movie/components/SearchMovies?query=${event.target.value}`
+        `/core/components/movie/components/SearchMovies?query=${event.target.value}`
       );
   };
   return (
@@ -65,7 +65,7 @@ export const Sider = (): PageComponent => {
           onClick={() =>
             selectGenre &&
             router.push(
-              `/core/movie/components/GenreMovies?genres=${selectGenre}&page=1`
+              `/core/components/movie/components/GenreMovies?genres=${selectGenre}&page=1`
             )
           }
         >

@@ -68,7 +68,7 @@ export const Header = (): PageComponent => {
                   key={genre.value}
                   onClick={() =>
                     router.push(
-                      `/core/movie/components/GenreMovies?genres=${genre.value}&page=1`
+                      `/core/components/movie/components/GenreMovies?genres=${genre.value}&page=1`
                     )
                   }
                 >

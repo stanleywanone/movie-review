@@ -80,7 +80,9 @@ export const Poster: FC<PosterProps> = ({
                 },
               }}
               onClick={() =>
-                router.push(`/core/movie/components/MovieDetail?id=${item.id}`)
+                router.push(
+                  `/core/components/movie/components/MovieDetail?id=${item.id}`
+                )
               }
               cursor="pointer"
               position={'relative'}
