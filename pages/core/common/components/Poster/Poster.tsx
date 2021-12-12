@@ -64,59 +64,59 @@ export const Poster: FC<PosterProps> = ({
   return (
     <Flex flexWrap="wrap" mt={2} justifyContent="space-evenly">
       {items.map((item) => {
+        console.log(
+          'MOVIES_POSTER + item.poster_path, ',
+          MOVIES_POSTER + item.poster_path
+        );
         return (
-          <>
-            <Box mr={5} mb={4}>
-              <Flex
-                key={`${item.id} box`}
-                flexWrap="wrap"
-                w="200px"
-                _hover={{
-                  '.Overlay': {
-                    height: '60%',
-                    bgColor: 'dark.400',
-                  },
-                  '.Cover': {
-                    bgColor: 'transparentColor',
-                  },
-                }}
-                onClick={() =>
-                  router.push(
-                    `/core/movie/components/MovieDetail?id=${item.id}`
-                  )
-                }
-                cursor="pointer"
-                position={'relative'}
-              >
-                <Image
-                  className="ImageStyle"
-                  key={`${item.id} image`}
-                  src={MOVIES_POSTER + item.poster_path}
-                  alt={item.original_title}
-                  {...imageStyleProps}
-                />
-                <Box
-                  className="Cover"
-                  position="absolute"
-                  w={'full'}
-                  h={'full'}
-                />
+          <Box mr={5} mb={4} key={`${item.id} box`}>
+            <Flex
+              key={`${item.id} flex`}
+              flexWrap="wrap"
+              w="200px"
+              _hover={{
+                '.Overlay': {
+                  height: '60%',
+                  bgColor: 'dark.400',
+                },
+                '.Cover': {
+                  bgColor: 'transparentColor',
+                },
+              }}
+              onClick={() =>
+                router.push(`/core/movie/components/MovieDetail?id=${item.id}`)
+              }
+              cursor="pointer"
+              position={'relative'}
+            >
+              <Image
+                className="ImageStyle"
+                key={`${item.id} image`}
+                src={MOVIES_POSTER + item.poster_path}
+                alt={item.original_title}
+                {...imageStyleProps}
+              />
+              <Box
+                className="Cover"
+                position="absolute"
+                w={'full'}
+                h={'full'}
+              />
 
-                <Flex className="Overlay" {...overlayStyleProps}>
-                  <Text fontWeight="bold" {...overviewStyleProps}>
-                    Overview:
-                  </Text>
-                  <Text {...overviewStyleProps}>
-                    {item.overview.substring(0, 150)}...
-                  </Text>
-                </Flex>
+              <Flex className="Overlay" {...overlayStyleProps}>
+                <Text fontWeight="bold" {...overviewStyleProps}>
+                  Overview:
+                </Text>
+                <Text {...overviewStyleProps}>
+                  {item.overview.substring(0, 150)}...
+                </Text>
               </Flex>
+            </Flex>
 
-              <Box {...boxStyleProps} mt={2}>
-                <Text {...titleStyleProps}>{item.original_title}</Text>
-              </Box>
+            <Box {...boxStyleProps} mt={2}>
+              <Text {...titleStyleProps}>{item.original_title}</Text>
             </Box>
-          </>
+          </Box>
         );
       })}
     </Flex>

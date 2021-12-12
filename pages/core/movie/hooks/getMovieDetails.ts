@@ -24,7 +24,6 @@ export const useGetMoiveDetails = (): UseMovieDetailsReturn => {
       GET_MOVIE_DETAILS(router.query.id as any)
     );
 
-    console.log('ssss, ', movieDetailsResponse);
     if (response.ok) setMovieDetails(movieDetailsResponse);
   };
   return {

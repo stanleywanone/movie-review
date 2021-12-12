@@ -28,13 +28,15 @@ export const Pagination: FC<PagiantionProps> = ({
         <ChevronLeftIcon
           mr={4}
           boxSize={6}
-          onClick={currentPage > 1 && (() => setCurrentPage(currentPage - 1))}
+          onClick={
+            currentPage > 1 ? () => setCurrentPage(currentPage - 1) : undefined
+          }
         />
       </Flex>
       {pagesArray?.map((page) => {
         return (
           <Flex
-            key={`${page} page`}
+            key={`${page} pagination`}
             cursor="pointer"
             onClick={page !== DOTS ? () => setCurrentPage(page) : null}
             bgColor={currentPage === page && 'darkBlue.900'}

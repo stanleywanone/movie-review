@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, Spinner } from '@chakra-ui/react';
 import { PageComponent } from '../../../common/types/page';
 import { useGernresMoives } from '../../hooks/getGenresMoives';
 import { Pagination } from '../../../common/components/Pagination';
@@ -27,19 +27,25 @@ const GenreMovies = (): PageComponent => {
   }, [router.query.genres, currentPage]);
 
   return (
-    <Flex color="lightBlue.300" flexDir="column" m={2}>
-      <Text fontSize="2xl" fontStyle="italic">
-        {genres} Movies
-      </Text>
-      <Poster items={genresMovies.results} />
-      <Flex mb={5}>
-        <Pagination
-          totalPages={genresMovies.total_pages}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
-      </Flex>
-    </Flex>
+    <>
+      {genresMovies ? (
+        <Flex color="lightBlue.300" flexDir="column" m={2}>
+          <Text fontSize="2xl" fontStyle="italic">
+            {genres} Movies
+          </Text>
+          <Poster items={genresMovies.results} />
+          <Flex mb={5}>
+            <Pagination
+              totalPages={genresMovies.total_pages}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
+          </Flex>
+        </Flex>
+      ) : (
+        <Spinner />
+      )}
+    </>
   );
 };
 

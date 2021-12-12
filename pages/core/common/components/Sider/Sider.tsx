@@ -25,6 +25,12 @@ const genresOptions = [
 
 export const Sider = (): PageComponent => {
   const { selectGenre, setSelectGenre } = useGernresMoives();
+  const onSearch = (event): void => {
+    if (event.key === 'Enter')
+      router.push(
+        `/core/movie/components/SearchMovies?query=${event.target.value}`
+      );
+  };
   return (
     <Flex
       m={1}
@@ -42,6 +48,7 @@ export const Sider = (): PageComponent => {
           placeholder="Search..."
           backgroundColor="white"
           border="1px solid darkBlue.900"
+          onKeyDown={onSearch}
         />{' '}
       </InputGroup>
       <Text fontWeight="bold" color={'lightBlue.300'} mt={2}>
@@ -56,6 +63,7 @@ export const Sider = (): PageComponent => {
         {' '}
         <Button
           onClick={() =>
+            selectGenre &&
             router.push(
               `/core/movie/components/GenreMovies?genres=${selectGenre}&page=1`
             )

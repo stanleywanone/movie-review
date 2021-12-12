@@ -17,7 +17,7 @@ export const usePagination = (
 ): UsePaginationReturn => {
   const DOTS = '...';
   const pagesArray = useMemo(() => {
-    if (siblingCount + 1 >= totalPages) {
+    if (siblingCount + 5 >= totalPages) {
       return range(1, totalPages);
     }
 
