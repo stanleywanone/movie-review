@@ -6,6 +6,7 @@ import { MOVIES_POSTER } from './core/components/movie/api/get';
 
 export const Index = (): PageComponent => {
   const { popularMovies, topRatedMovies, nowPlayingMovies } = useGetMovies();
+
   return (
     <Flex color={'lightBlue.300'} flexDir="column">
       <Text m={2} fontSize="2xl" fontStyle="italic">
