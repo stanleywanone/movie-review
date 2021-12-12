@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import useFetch from 'use-http';
 import { useRouter } from 'next/router';
-import { GET_MOVIE_DETAILS, TMBD } from '../api/get';
+import { GET_MOVIE_DETAILS, TMBD } from '@/core/components/movie/api/get';
 
 export interface UseMovieDetailsReturn {
   movieDetails: any;

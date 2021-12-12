@@ -1,8 +1,8 @@
 import { Flex, Box, Image } from '@chakra-ui/react';
-import { PageComponent } from '../../../../common/types/page';
+import { PageComponent } from '@/core/common/types/page';
 import { Spinner } from '@chakra-ui/react';
-import { MOVIES_POSTER } from '../../api/get';
-import { useGetMoiveDetails } from '../../hooks/getMovieDetails';
+import { MOVIES_POSTER } from '@/core/components/movie/api/get';
+import { useGetMoiveDetails } from '@/core/components/movie/hooks/getMovieDetails';
 import { MovieContent } from './MovieContent/MovieContent';
 
 export interface MovieDetailProps {

@@ -5,7 +5,7 @@ import {
   GET_TOP_RATED_MOVIES,
   GET_NOW_PLAYING_MOVIES,
   TMBD,
-} from '../api/get';
+} from '@/core/components/movie/api/get';
 
 interface UseGetMoviesReturn {
   popularMovies: any;

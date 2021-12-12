@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import useFetch from 'use-http';
 import { useRouter } from 'next/router';
-import { GET_SEARCH_MOVIES, TMBD } from '../api/get';
+import { GET_SEARCH_MOVIES, TMBD } from '@/core/components/movie/api/get';
 
 export interface UseSearchMoviesReturn {
   searchMovies: any;

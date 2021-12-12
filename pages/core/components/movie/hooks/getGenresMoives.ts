@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo, Dispatch, SetStateAction } from 'react';
 import useFetch from 'use-http';
 import { useRouter } from 'next/router';
-import { GET_GENRES_MOVIES, TMBD } from '../api/get';
+import { GET_GENRES_MOVIES, TMBD } from '@/core/components/movie/api/get';
 
 export interface UseGernresMoivesReturns {
   genresMovies: any;

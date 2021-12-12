@@ -9,7 +9,7 @@ import {
   ImageProps,
   TextProps,
 } from '@chakra-ui/react';
-import { MOVIES_POSTER } from '../../../components/movie/api/get';
+import { MOVIES_POSTER } from '@/core/components/movie/api/get';
 
 interface PosterProps extends BoxProps {
   items: any[];

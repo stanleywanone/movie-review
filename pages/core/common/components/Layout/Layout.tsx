@@ -1,5 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react';
-import { PageComponent } from '../../types/page';
+import { PageComponent } from '@/core/common/types/page';
 import { Header } from '../Header';
 import { Sider } from '../Sider';
 

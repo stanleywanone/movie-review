@@ -1,10 +1,10 @@
 import { useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { Flex, Text, Spinner } from '@chakra-ui/react';
-import { PageComponent } from '../../../../common/types/page';
-import { useGernresMoives } from '../../hooks/getGenresMoives';
-import { Pagination } from '../../../../common/components/Pagination';
-import { Poster } from '../../../../common/components/Poster';
+import { PageComponent } from '@/core/common/types/page';
+import { useGernresMoives } from '@/core/components/movie/hooks/getGenresMoives';
+import { Pagination } from '@/core/common/components/Pagination';
+import { Poster } from '@/core/common/components/Poster';
 
 const GenreMovies = (): PageComponent => {
   const { genresMovies, currentPage, setCurrentPage } = useGernresMoives();

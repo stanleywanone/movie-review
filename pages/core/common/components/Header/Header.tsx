@@ -10,7 +10,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
-import { PageComponent } from '../../types/page';
+import { PageComponent } from '@/core/common/types/page';
 
 const genresOptions = [
   { value: 'action', label: 'Action' },

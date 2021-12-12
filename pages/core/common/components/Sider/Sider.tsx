@@ -7,10 +7,10 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
-import { PageComponent } from '../../types/page';
+import { PageComponent } from '@/core/common/types/page';
 import { Button } from '../Button';
 import { Select } from '../Select';
-import { useGernresMoives } from '../../../components/movie/hooks/getGenresMoives';
+import { useGernresMoives } from '@/core/components/movie/hooks/getGenresMoives';
 
 const genresOptions = [
   { value: 'action', label: 'Action' },
