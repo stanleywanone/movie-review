@@ -29,8 +29,6 @@ export const useSearchMovies = (): UseSearchMoviesReturn => {
       GET_SEARCH_MOVIES + `&query=${router.query.query}&page=${currentPage}`
     );
 
-    console.log('result, ', searchMoviesResponse);
-
     if (response.ok) setsearchMovies(searchMoviesResponse);
   };
   return {

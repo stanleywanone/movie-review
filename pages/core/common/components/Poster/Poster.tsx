@@ -64,10 +64,6 @@ export const Poster: FC<PosterProps> = ({
   return (
     <Flex flexWrap="wrap" mt={2} justifyContent="space-evenly">
       {items.map((item) => {
-        console.log(
-          'MOVIES_POSTER + item.poster_path, ',
-          MOVIES_POSTER + item.poster_path
-        );
         return (
           <Box mr={5} mb={4} key={`${item.id} box`}>
             <Flex
