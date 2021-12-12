@@ -1,5 +1,5 @@
 import { Flex, Box, Image } from '@chakra-ui/react';
-import { PageComponent } from '../../../common/types/page';
+import { PageComponent } from '../../../../common/types/page';
 import { Spinner } from '@chakra-ui/react';
 import { MOVIES_POSTER } from '../../api/get';
 import { useGetMoiveDetails } from '../../hooks/getMovieDetails';

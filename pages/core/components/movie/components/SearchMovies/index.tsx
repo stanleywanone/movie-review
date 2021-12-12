@@ -1,7 +1,7 @@
 import { Flex, Text, Spinner, Box } from '@chakra-ui/react';
-import { PageComponent } from '../../../common/types/page';
-import { Poster } from '../../../common/components/Poster';
-import { Pagination } from '../../../common/components/Pagination';
+import { PageComponent } from '../../../../common/types/page';
+import { Poster } from '../../../../common/components/Poster';
+import { Pagination } from '../../../../common/components/Pagination';
 import { useSearchMovies } from '../../hooks/getSearchMovies';
 
 const SearchMovies = (): PageComponent => {

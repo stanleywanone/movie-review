@@ -10,7 +10,7 @@ import { SearchIcon } from '@chakra-ui/icons';
 import { PageComponent } from '../../types/page';
 import { Button } from '../Button';
 import { Select } from '../Select';
-import { useGernresMoives } from '../../../movie/hooks/getGenresMoives';
+import { useGernresMoives } from '../../../components/movie/hooks/getGenresMoives';
 
 const genresOptions = [
   { value: 'action', label: 'Action' },
