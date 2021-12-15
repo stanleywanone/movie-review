@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useRouter } from 'next/router';
 import {
   HStack,
@@ -10,7 +11,6 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
-import { PageComponent } from '@/core/common/types/page';
 
 const genresOptions = [
   { value: 'action', label: 'Action' },
@@ -23,7 +23,7 @@ const genresOptions = [
   { value: 'horror', label: 'Horror' },
 ];
 /**Color map :1B262C, 0F4C75, 3282B8 BBE1FA */
-export const Header = (): PageComponent => {
+export const Header: FC = () => {
   const router = useRouter();
   return (
     <Flex flexDir="column">

@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import router from 'next/router';
 import {
   Text,
@@ -7,7 +8,6 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
-import { PageComponent } from '@/core/common/types/page';
 import { Button } from '../Button';
 import { Select } from '../Select';
 import { useGernresMoives } from '@/core/components/movie/hooks/getGenresMoives';
@@ -23,7 +23,7 @@ const genresOptions = [
   { value: 'horror', label: 'Horror' },
 ];
 
-export const Sider = (): PageComponent => {
+export const Sider: FC = () => {
   const { selectGenre, setSelectGenre } = useGernresMoives();
   const onSearch = (event): void => {
     if (event.key === 'Enter')
