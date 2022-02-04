@@ -1,10 +1,9 @@
+import { FC } from 'react';
 import { Flex, Box, Text, Image } from '@chakra-ui/react';
-
-import { PageComponent } from './core/common/types/page';
 import { useGetMovies } from './core/components/movie/hooks/getMovies';
 import { MOVIES_POSTER } from './core/components/movie/api/get';
 
-export const Index = (): PageComponent => {
+export const Index: FC = () => {
   const { popularMovies, topRatedMovies, nowPlayingMovies } = useGetMovies();
 
   return (

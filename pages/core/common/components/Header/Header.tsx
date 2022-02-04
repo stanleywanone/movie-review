@@ -25,6 +25,13 @@ const genresOptions = [
 /**Color map :1B262C, 0F4C75, 3282B8 BBE1FA */
 export const Header: FC = () => {
   const router = useRouter();
+
+  const onSearch = (event): void => {
+    if (event.key === 'Enter')
+      router.push(
+        `/core/components/movie/components/SearchMovies?query=${event.target.value}`
+      );
+  };
   return (
     <Flex flexDir="column">
       <Flex justifyContent="space-between">
@@ -49,6 +56,7 @@ export const Header: FC = () => {
               placeholder="Search for movies..."
               backgroundColor="white"
               border="1px solid darkBlue.900"
+              onKeyDown={onSearch}
             />{' '}
           </InputGroup>
         </HStack>
