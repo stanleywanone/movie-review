@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
 
 export const range = (start: number, end: number): Array<number> => {
-  if (start === end) return [start];
-  return [start, ...range(start + 1, end)];
+  return Array.from(Array(end - start + 1).keys()).map((x) => x + start);
 };
 
 interface UsePaginationReturn {
@@ -22,13 +21,13 @@ export const usePagination = (
     }
 
     /*
-    	Calculate left and right sibling index and make sure they are within range 1 and totalPages
+      Calculate left and right sibling index and make sure they are within range 1 and totalPages
     */
     const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
     const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPages);
 
     /*
-      We do not show dots just when there is just one page number to be inserted between the extremes of sibling and the page limits i.e 1 and totalPages. Hence we are using leftSiblingIndex > 2 and rightSiblingIndex < totalPages - 2
+      Do not show dots just when there is just one page number to be inserted between the extremes of sibling and the page limits i.e 1 and totalPages.
     */
     const shouldShowLeftDots = leftSiblingIndex > 2;
     const shouldShowRightDots = rightSiblingIndex < totalPages - 2;
@@ -37,7 +36,7 @@ export const usePagination = (
     const lastPageIndex = totalPages;
 
     /*
-    	Case 2: No left dots to show, but rights dots to be shown
+      Case 2: No left dots to show, but rights dots to be shown
     */
     if (!shouldShowLeftDots && shouldShowRightDots) {
       const leftItemCount = 3 + 2 * siblingCount;
@@ -47,21 +46,25 @@ export const usePagination = (
     }
 
     /*
-    	Case 3: No right dots to show, but left dots to be shown
+      Case 3: No right dots to show, but left dots to be shown
     */
     if (shouldShowLeftDots && !shouldShowRightDots) {
       const rightItemCount = 3 + 2 * siblingCount;
       const rightRange = range(totalPages - rightItemCount + 1, totalPages);
+
       return [firstPageIndex, DOTS, ...rightRange];
     }
 
     /*
-    	Case 4: Both left and right dots to be shown
+      Case 4: Both left and right dots to be shown
     */
     if (shouldShowLeftDots && shouldShowRightDots) {
       const middleRange = range(leftSiblingIndex, rightSiblingIndex);
+
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
     }
+
+    return [];
   }, [currentPage, siblingCount, totalPages]);
 
   return { pagesArray, DOTS };
