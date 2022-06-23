@@ -91,4 +91,4 @@ export const Header: FC = () => {
   );
 };
 
-Header.displayName = 'Header';
+export default Header;
