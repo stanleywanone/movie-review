@@ -16,6 +16,7 @@ export const Pagination: FC<PagiantionProps> = ({
 }) => {
   const { pagesArray, DOTS } = usePagination(currentPage, totalPages);
 
+  console.log('current, ', currentPage);
   return (
     <Flex>
       <Flex

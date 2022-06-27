@@ -76,4 +76,4 @@ export const Sider: FC = () => {
   );
 };
 
-Sider.displayName = 'Sider';
+export default Sider;
